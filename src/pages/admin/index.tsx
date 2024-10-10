@@ -10,8 +10,7 @@ import {
   query,
   orderBy,
   doc,
-  deleteDoc,
-  snapshotEqual,
+  deleteDoc
 } from "firebase/firestore";
 
 interface LinkProps {
@@ -35,7 +34,7 @@ export function Admin() {
     const queryRef = query(linkRef, orderBy("created", "asc"));
 
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      let lista = [] as LinkProps[];
+      const lista = [] as LinkProps[];
 
       snapshot.forEach((doc) => {
         lista.push({
